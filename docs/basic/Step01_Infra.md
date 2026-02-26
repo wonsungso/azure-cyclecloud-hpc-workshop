@@ -243,12 +243,12 @@ shared
 
 다음 항목이 모두 준비되었는지 확인합니다.
 
-* [ ] Resource Group 생성 완료
-* [ ] Virtual Network 생성 완료
-* [ ] snet-management 생성
-* [ ] snet-compute 생성
-* [ ] Storage Account 생성
-* [ ] File Share(shared) 생성
+* [v] Resource Group 생성 완료
+* [v] Virtual Network 생성 완료
+* [v] snet-management 생성
+* [v] snet-compute 생성
+* [v] Storage Account 생성
+* [v] File Share(shared) 생성
 
 ---
 

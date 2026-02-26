@@ -221,11 +221,11 @@ CycleCloud UI → Clusters 화면에서:
 
 # Step03 완료 체크리스트
 
-* [ ] Slurm Template 선택
-* [ ] Cluster Name 설정 완료
-* [ ] Compute Node Min=0 설정
-* [ ] Cluster 상태 Running 확인
-* [ ] Login Node 생성 확인
+* [v] Slurm Template 선택
+* [v] Cluster Name 설정 완료
+* [v] Compute Node Min=0 설정
+* [v] Cluster 상태 Running 확인
+* [v] Login Node 생성 확인
 
 ---
 

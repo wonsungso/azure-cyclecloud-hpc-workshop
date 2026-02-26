@@ -239,12 +239,12 @@ Scheduler가 Autoscale을 간접적으로 트리거합니다.
 
 # Step04 완료 체크리스트
 
-* [ ] Login Node SSH 접속 성공
-* [ ] sinfo 명령 실행 확인
-* [ ] srun hostname 실행
-* [ ] Compute Node 생성 확인
-* [ ] sbatch Job 실행 성공
-* [ ] squeue 상태 확인
+* [v] Login Node SSH 접속 성공
+* [v] sinfo 명령 실행 확인
+* [v] srun hostname 실행
+* [v] Compute Node 생성 확인
+* [v] sbatch Job 실행 성공
+* [v] squeue 상태 확인
 
 ---
 

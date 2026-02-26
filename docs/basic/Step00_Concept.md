@@ -150,10 +150,10 @@ sbatch
 
 다음 항목을 이해했는지 확인합니다.
 
-* [ ] HPC 기본 구성 요소(노드/네트워크/스토리지/스케줄러)
-* [ ] Slurm 핵심 용어(Job, Node, Partition, Queue, Controller)
-* [ ] CycleCloud VM과 Cluster VM의 역할 분리
-* [ ] Autoscale 트리거 및 동작 흐름
+* [v] HPC 기본 구성 요소(노드/네트워크/스토리지/스케줄러)
+* [v] Slurm 핵심 용어(Job, Node, Partition, Queue, Controller)
+* [v] CycleCloud VM과 Cluster VM의 역할 분리
+* [v] Autoscale 트리거 및 동작 흐름
 
 ---
 

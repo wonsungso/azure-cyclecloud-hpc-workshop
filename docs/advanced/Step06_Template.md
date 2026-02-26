@@ -225,11 +225,11 @@ Dynamic Partition 특징:
 
 # Step06 완료 체크리스트
 
-* [ ] Templates 메뉴 접근 성공
-* [ ] Slurm Template 구조 확인
-* [ ] Nodearray 개념 이해
-* [ ] Max Node 값 변경 후 Save
-* [ ] Cluster Update 수행
+* [v] Templates 메뉴 접근 성공
+* [v] Slurm Template 구조 확인
+* [v] Nodearray 개념 이해
+* [v] Max Node 값 변경 후 Save
+* [v] Cluster Update 수행
 
 ---
 

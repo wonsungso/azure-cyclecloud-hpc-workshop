@@ -216,11 +216,11 @@ Compute Node는 아직 존재하지 않습니다.
 
 # Step02 완료 체크리스트
 
-* [ ] CycleCloud VM 배포 완료
-* [ ] Public IP 확인
-* [ ] 브라우저 접속 성공
-* [ ] CycleCloud UI 확인
-* [ ] Cluster 목록이 비어있는 상태 확인
+* [v] CycleCloud VM 배포 완료
+* [v] Public IP 확인
+* [v] 브라우저 접속 성공
+* [v] CycleCloud UI 확인
+* [v] Cluster 목록이 비어있는 상태 확인
 
 ---
 

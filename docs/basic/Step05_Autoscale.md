@@ -262,12 +262,12 @@ rg-cyclecloud-hpc-lab → Delete
 
 # Step05 완료 체크리스트
 
-* [ ] 여러 Job 제출 성공
-* [ ] Compute Node 자동 생성 확인
-* [ ] Job 종료 후 Scale-in 확인
-* [ ] Slurm Cluster Stop
-* [ ] CycleCloud Stop
-* [ ] Resource Group 삭제
+* [v] 여러 Job 제출 성공
+* [v] Compute Node 자동 생성 확인
+* [v] Job 종료 후 Scale-in 확인
+* [v] Slurm Cluster Stop
+* [v] CycleCloud Stop
+* [v] Resource Group 삭제
 
 ---
 

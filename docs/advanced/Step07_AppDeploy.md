@@ -262,12 +262,12 @@ Cluster 구조 + 실제 Application 실행
 
 # Step07 완료 체크리스트
 
-* [ ] /shared/apps 디렉터리 생성
-* [ ] run-app.sh 생성 및 실행 권한 부여
-* [ ] app-job.sh 생성
-* [ ] sbatch 실행 성공
-* [ ] Compute Node에서 Application 실행 확인
-* [ ] output 파일 확인
+* [v] /shared/apps 디렉터리 생성
+* [v] run-app.sh 생성 및 실행 권한 부여
+* [v] app-job.sh 생성
+* [v] sbatch 실행 성공
+* [v] Compute Node에서 Application 실행 확인
+* [v] output 파일 확인
 
 ---
 
