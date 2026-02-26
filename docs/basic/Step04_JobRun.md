@@ -1,4 +1,6 @@
-# Step04 – JobRun
+# Step04 – Job 실행 & Scheduler 이해
+
+모듈 설명: Slurm 명령으로 작업을 제출하고 스케줄러 동작 흐름을 검증합니다.
 
 ---
 

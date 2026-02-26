@@ -1,4 +1,6 @@
-# Step06 – Template
+# Step06 – Slurm Template 구조 이해 & Nodearray / Partition 심화
+
+모듈 설명: Slurm Template 구조를 이해하고 Nodearray/Partition 설정을 조정합니다.
 
 ---
 

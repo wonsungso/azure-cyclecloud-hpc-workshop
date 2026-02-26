@@ -80,8 +80,8 @@ CycleCloud Tutorials 내용을 Portal 중심 워크샵에 맞게 재구성한 Ad
 
 ### Steps
 
-* Step06 – Template Customizing
-* Step07 – HPC Application Deployment
+* Step06 – Slurm Template 구조 이해 & Nodearray / Partition 심화
+* Step07 – Shared Storage 기반 Application Deployment
 
 `docs/advanced/` 폴더에서 진행
 

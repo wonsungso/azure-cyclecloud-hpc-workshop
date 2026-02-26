@@ -1,4 +1,6 @@
-# Step07 – AppDeploy
+# Step07 – Shared Storage 기반 Application Deployment
+
+모듈 설명: Shared Storage 기반으로 HPC 애플리케이션을 배치하고 Slurm으로 실행합니다.
 
 ---
 

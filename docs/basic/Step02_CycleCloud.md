@@ -1,4 +1,6 @@
-# Step02 – CycleCloud
+# Step02 – CycleCloud Deployment
+
+모듈 설명: Azure CycleCloud를 배포하고 초기 접속 및 기본 설정을 확인합니다.
 
 ---
 

@@ -1,4 +1,6 @@
-# Step00 – Concept
+# Step00 – HPC & CycleCloud Concept
+
+모듈 설명: Azure HPC와 CycleCloud의 핵심 개념 및 역할 구조를 이해합니다.
 
 ## 학습 목표
 이 Step에서는 Azure에서 HPC 환경을 구축하기 전에 반드시 이해해야 하는 핵심 개념을 정리합니다.

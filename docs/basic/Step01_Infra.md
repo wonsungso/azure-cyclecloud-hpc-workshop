@@ -1,4 +1,6 @@
-# Step01 – Infra
+# Step01 – Azure Infra (RG / Network / Storage)
+
+모듈 설명: Resource Group, 네트워크, 스토리지 등 HPC 기본 인프라를 구성합니다.
 
 ---
 
