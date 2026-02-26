@@ -1,118 +1,160 @@
-# Azure CycleCloud + Slurm HPC Workshop (L200)
+# Azure CycleCloud + Slurm HPC Workshop (L200–L250)
+
+Azure Portal 기준으로 **Azure CycleCloud와 Slurm 기반 HPC 클러스터**를 구축하고,
+Autoscale 동작부터 Template Customizing, Application Deployment까지 단계적으로 학습하는 Hands-on Workshop입니다.
+
+이 저장소는 HPC 또는 CycleCloud 경험이 없는 사용자도 따라갈 수 있도록
+**Concept → Infra → Cluster → Job → Autoscale → Advanced 확장** 흐름으로 구성되어 있습니다.
 
 ---
 
-## 📘 Overview
+# 🧭 Workshop 개요
 
-이 워크샵은 Azure Portal 기준으로 **Azure CycleCloud와 Slurm 기반 HPC 환경**을 직접 구축하면서
-Autoscale 기반 HPC 클러스터의 동작 방식을 이해하는 것을 목표로 합니다.
+## 🎯 목표
 
-본 실습은 **HPC 또는 CycleCloud 경험이 없는 사용자(L200 수준)**를 대상으로 설계되었습니다.
-
-학습을 통해 다음을 직접 경험할 수 있습니다.
+이 워크샵을 통해 다음을 직접 경험할 수 있습니다.
 
 * Azure CycleCloud Control Plane 이해
-* Slurm Scheduler 기반 Job 실행 흐름
-* Queue 기반 Compute Node Autoscale
-* Azure HPC 아키텍처 구성 방식
+* Slurm Scheduler 기반 HPC Job 흐름
+* Queue 기반 Autoscale 동작
+* Shared Storage 기반 Application 실행 구조
+* Template Customizing (Advanced)
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ Architecture (개념 구조)
 
-본 워크샵에서 구성하는 구조:
+본 워크샵에서는 다음과 같은 Azure HPC 구조를 구성합니다.
 
 * Azure CycleCloud (Cluster Control Plane)
-* Slurm Login / Scheduler Node
+* Slurm Login / Controller Node
 * Dynamic Compute Nodes (Autoscale)
 * Azure Files Shared Storage
-* VNet 기반 내부 통신 구조
+* VNet 기반 내부 통신
 
 ---
 
-## 🧭 Workshop Steps
+# 📘 Workshop Tracks
 
-아래 순서대로 진행하시기 바랍니다.
-
-### 🔹 Step00 – HPC & CycleCloud 개념 이해
-
-HPC 기본 개념과 Azure CycleCloud의 역할을 이해합니다.
-
-👉 `docs/Step00.md`
+이 저장소는 두 가지 난이도로 구성됩니다.
 
 ---
 
-### 🔹 Step01 – Azure 기본 인프라 준비
+## ✅ Core Workshop (L200 – Portal First)
 
-Resource Group, VNet, Subnet, Shared Storage를 생성합니다.
+Azure Portal 기준으로 HPC 환경을 처음부터 구축하며
+Autoscale 흐름을 이해하는 기본 과정입니다.
 
-👉 `docs/Step01.md`
+### Steps
 
----
+* Step00 – HPC & CycleCloud Concept
+* Step01 – Azure Infra (RG / Network / Storage)
+* Step02 – CycleCloud Deployment
+* Step03 – Slurm Cluster 생성
+* Step04 – Job 실행 & Scheduler 이해
+* Step05 – Autoscale 체험
 
-### 🔹 Step02 – Azure CycleCloud 배포
+👉 `docs/` 폴더에서 진행
 
-Marketplace를 통해 CycleCloud Control Plane을 배포합니다.
-
-👉 `docs/Step02.md`
-
----
-
-### 🔹 Step03 – Slurm HPC Cluster 생성
-
-CycleCloud Template을 사용하여 Slurm 클러스터를 생성합니다.
-
-👉 `docs/Step03.md`
-
----
-
-### 🔹 Step04 – Job 실행 & Scheduler 이해
-
-SSH 접속 후 Slurm Job을 실행하며 Scheduler 동작을 확인합니다.
-
-👉 `docs/Step04.md`
+```
+docs/
+ Step00.md
+ Step01.md
+ Step02.md
+ Step03.md
+ Step04.md
+ Step05.md
+```
 
 ---
 
-### 🔹 Step05 – Autoscale 체험 및 리소스 정리
+## 🚀 Advanced Workshop (L250 – Optional)
 
-Queue 증가에 따른 Compute Node Autoscale을 관찰하고 리소스를 정리합니다.
+CycleCloud Tutorials 내용을 Portal 중심 워크샵에 맞게 재구성한 Advanced 과정입니다.
 
-👉 `docs/Step05.md`
+다음 개념을 다룹니다.
+
+* Slurm Template 구조 이해
+* Nodearray / Partition 심화
+* Shared Storage 기반 Application Deployment
+
+### Steps
+
+* Step06 – Template Customizing
+* Step07 – HPC Application Deployment
+
+👉 `advanced/` 폴더에서 진행
+
+```
+advanced/
+ Step06-Template-Customizing.md
+ Step07-Application-Deployment.md
+```
 
 ---
 
-## ⚙️ Prerequisites
+# ⚙️ Prerequisites
 
-워크샵 시작 전에 다음을 확인하세요.
+워크샵 시작 전에 다음을 준비해주세요.
 
 * Azure Subscription
-* VM 생성 권한
-* 최소 8~16 vCPU Quota 권장
-* SSH 클라이언트 (Windows Terminal / WSL 등)
+* VM 생성 권한 (Contributor 이상 권장)
+* 최소 8~16 vCPU Compute Quota
+* SSH Client (Windows Terminal / WSL / Mac Terminal)
+
+권장 VM Size:
+
+```
+Standard_D2as_v5 (CycleCloud / Login Node)
+Standard_D4as_v5 (Compute Node)
+```
 
 ---
 
-## 💡 Notes
+# 📁 Repository Structure
 
-* 본 워크샵은 학습 목적이며 Production 환경 설계를 포함하지 않습니다.
-* 실제 운영 환경에서는 Private Access, Bastion, RBAC 최소 권한 구성을 권장합니다.
-* GPU 노드 구성은 본 워크샵 범위에 포함되지 않습니다.
+```
+azure-cyclecloud-hpc-workshop/
+│
+├── docs/          # Core Workshop (L200)
+├── advanced/      # Advanced Add-on (L250)
+├── images/        # Architecture & Diagram
+└── scripts/       # Sample Job Scripts
+```
 
 ---
 
-## 🧹 Cleanup
+# ▶️ Quick Start
 
-워크샵 종료 후 반드시 다음을 수행하십시오.
+1. `docs/Step00.md`부터 순서대로 진행합니다.
+2. Step05까지 완료하면 기본 HPC Autoscale 흐름을 이해하게 됩니다.
+3. 더 깊이 있는 내용을 원하면 `advanced/` 단계로 이동하세요.
 
-* Slurm Cluster Stop
-* CycleCloud VM Stop
-* Resource Group Delete
+---
+
+# 💡 Notes
+
+* 본 워크샵은 학습 목적이며 Production Best Practice를 모두 포함하지 않습니다.
+
+* 실제 운영 환경에서는 다음 구성을 권장합니다.
+
+  * Private Endpoint
+  * Azure Bastion
+  * RBAC 최소 권한
+  * NAT Gateway
+
+* GPU Cluster 및 Container HPC는 Advanced 확장 영역입니다.
+
+---
+
+# 🧹 Cleanup (중요)
+
+워크샵 종료 후 반드시 다음을 수행하세요.
+
+1. Slurm Cluster Stop
+2. CycleCloud VM Stop
+3. Resource Group Delete
 
 리소스를 삭제하지 않으면 비용이 발생할 수 있습니다.
 
 ---
-
-## 📄 License
-
-MIT License
