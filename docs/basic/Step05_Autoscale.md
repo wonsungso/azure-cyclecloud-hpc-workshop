@@ -1,4 +1,4 @@
-# Step05 – Autoscale 체험
+# Step05 – Queue 기반 Autoscale 체험 & 리소스 정리
 
 모듈 설명: 작업 큐 변화에 따른 Scale-out/Scale-in 동작과 리소스 정리를 실습합니다.
 

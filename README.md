@@ -47,12 +47,12 @@ Autoscale 흐름을 이해하는 기본 과정입니다.
 
 ### Steps
 
-* Step00 – HPC & CycleCloud Concept
-* Step01 – Azure Infra (RG / Network / Storage)
-* Step02 – CycleCloud Deployment
-* Step03 – Slurm Cluster 생성
-* Step04 – Job 실행 & Scheduler 이해
-* Step05 – Autoscale 체험
+* Step00 – HPC 기본 개념 이해 & Azure CycleCloud 역할 구조
+* Step01 – Azure Infra 구성 (Resource Group / Network / Storage)
+* Step02 – Azure CycleCloud Deployment & 초기 설정
+* Step03 – Slurm Cluster 생성 & 기본 노드 구성 확인
+* Step04 – Job 실행 & Slurm Scheduler 동작 이해
+* Step05 – Queue 기반 Autoscale 체험 & 리소스 정리
 
 `docs/` 폴더에서 진행
 

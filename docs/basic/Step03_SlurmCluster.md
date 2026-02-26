@@ -1,4 +1,4 @@
-# Step03 – Slurm Cluster 생성
+# Step03 – Slurm Cluster 생성 & 기본 노드 구성 확인
 
 모듈 설명: CycleCloud를 통해 Slurm 기반 HPC 클러스터를 생성하고 기본 구성을 확인합니다.
 
