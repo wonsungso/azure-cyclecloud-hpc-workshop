@@ -1,0 +1,232 @@
+# Step02 – Azure CycleCloud 배포 및 초기 설정
+
+---
+
+## 🎯 학습 목표
+
+이번 Step에서는 Azure HPC 환경의 핵심 관리 컴포넌트인 **Azure CycleCloud**를 배포합니다.
+
+이 단계가 끝나면:
+
+* CycleCloud Web Portal 접속 가능
+* Azure 리소스를 생성할 권한을 가진 Control Plane 준비 완료
+
+학습 내용:
+
+* Azure CycleCloud 역할 이해
+* Marketplace 기반 배포
+* 네트워크 연결 구조 이해
+* CycleCloud VM과 Login Node의 차이 이해
+
+---
+
+# 1. Azure CycleCloud 역할 다시 이해하기
+
+많이 헷갈리는 부분이므로 다시 정리합니다.
+
+✔️ CycleCloud는:
+
+* HPC 클러스터 생성 관리자
+* Scheduler와 Azure 사이 orchestration 수행
+* Autoscale 트리거
+
+❌ CycleCloud는:
+
+* Compute Node 아님
+* Slurm Scheduler 아님
+* Job 실행 서버 아님
+
+---
+
+## 🔎 이번 워크샵에서의 위치
+
+```id="1a0rcc"
+User
+ │
+ ▼
+CycleCloud (관리 서버)
+ │
+ ▼
+Slurm Cluster (다음 Step에서 생성)
+```
+
+---
+
+# 2. Azure CycleCloud 배포 (Portal)
+
+## 🔧 Marketplace에서 생성
+
+1. Azure Portal 상단 검색창
+2. **CycleCloud** 검색
+3. **Azure CycleCloud** 선택
+4. Create 클릭
+
+---
+
+## 🧾 Basics 설정
+
+| 항목             | 값 (예시)                |
+| -------------- | --------------------- |
+| Resource Group | rg-cyclecloud-hpc-lab |
+| VM Name        | cc-hpc-lab            |
+| Region         | Korea Central         |
+| Authentication | Password 또는 SSH Key   |
+
+> 워크샵에서는 Password 방식 사용 권장 (빠른 실습 목적)
+
+---
+
+## 💻 VM Size 선택
+
+추천 (CPU 기반 워크샵):
+
+```id="vgh0l3"
+Standard_D2as_v5
+```
+
+CycleCloud는 Control Plane이므로
+고성능 VM이 필요하지 않습니다.
+
+---
+
+# 3. Networking 설정
+
+## 📌 매우 중요
+
+Step01에서 만든 VNet을 사용합니다.
+
+| 항목              | 값               |
+| --------------- | --------------- |
+| Virtual Network | vnet-hpc-lab    |
+| Subnet          | snet-management |
+
+---
+
+## Public IP 설정
+
+워크샵에서는 접속 편의를 위해:
+
+```id="7z31pj"
+Public IP: Enabled
+```
+
+※ 실제 운영 환경에서는 Bastion 또는 Private 접근 권장
+
+---
+
+# 4. Identity (권한) 개념
+
+CycleCloud는 Azure VM을 대신 생성해야 합니다.
+
+따라서:
+
+👉 Managed Identity 또는 Service Principal 권한 필요
+
+워크샵에서는:
+
+```id="0k9c6n"
+System Assigned Managed Identity 사용
+```
+
+생성 후 다음 Step에서 Slurm 클러스터 생성 시
+Azure 리소스 생성 권한을 사용하게 됩니다.
+
+---
+
+# 5. Review + Create
+
+설정 확인 후:
+
+* Review + Create
+* Create 클릭
+
+배포 시간:
+
+⏱️ 약 5~8분
+
+---
+
+# 6. CycleCloud Web Portal 접속
+
+배포 완료 후:
+
+1. 생성된 VM 리소스 이동
+2. Public IP 확인
+3. 브라우저에서 접속
+
+```id="xy0ux4"
+https://<Public-IP>
+```
+
+---
+
+## 🔐 첫 로그인
+
+VM 생성 시 설정한:
+
+* Username
+* Password
+
+입력
+
+처음 접속 시:
+
+* Self-signed 인증서 경고가 나타날 수 있음
+* Continue 진행
+
+---
+
+# 7. CycleCloud 초기 화면 이해
+
+접속 후 확인할 수 있는 주요 메뉴:
+
+| 메뉴        | 설명             |
+| --------- | -------------- |
+| Clusters  | HPC Cluster 관리 |
+| Templates | Slurm/PBS 템플릿  |
+| Settings  | Azure 연동 설정    |
+| Nodes     | 현재 생성된 VM 상태   |
+
+현재 상태:
+
+```id="t7gl6g"
+아직 Cluster 없음 (정상)
+```
+
+다음 Step에서 Slurm Cluster를 생성합니다.
+
+---
+
+# 8. 네트워크 구조 현재 상태
+
+지금까지 구성된 Azure 리소스 흐름:
+
+```id="8py94p"
+Resource Group
+ ├─ VNet (vnet-hpc-lab)
+ │   ├─ snet-management
+ │   │   └─ CycleCloud VM
+ │   └─ snet-compute (비어있음)
+ └─ Storage Account (Shared Files)
+```
+
+Compute Node는 아직 존재하지 않습니다.
+
+---
+
+# ✔️ Step02 완료 체크리스트
+
+* [ ] CycleCloud VM 배포 완료
+* [ ] Public IP 확인
+* [ ] 브라우저 접속 성공
+* [ ] CycleCloud UI 확인
+* [ ] Cluster 목록이 비어있는 상태 확인
+
+---
+
+# ➡️ 다음 Step
+
+Step03에서는 CycleCloud UI를 이용하여
+**Slurm 기반 HPC Cluster**를 실제로 생성합니다.
+
+이제부터 Scheduler와 Compute Node가 등장합니다.
