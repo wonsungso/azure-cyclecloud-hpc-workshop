@@ -57,7 +57,7 @@ Autoscale 흐름을 이해하는 기본 과정입니다.
 `docs/` 폴더에서 진행
 
 ```
-docs/basic/
+docs/01-basic/
  Step00_Concept.md
  Step01_Infra.md
  Step02_CycleCloud.md
@@ -83,10 +83,10 @@ CycleCloud Tutorials 내용을 Portal 중심 워크샵에 맞게 재구성한 Ad
 * Step06 – Slurm Template 구조 이해 & Nodearray / Partition 심화
 * Step07 – Shared Storage 기반 Application Deployment
 
-`docs/advanced/` 폴더에서 진행
+`docs/02-advanced/` 폴더에서 진행
 
 ```
-docs/advanced/
+docs/02-advanced/
  Step06_Template.md
  Step07_AppDeploy.md
 ```
@@ -117,9 +117,9 @@ Standard_D4as_v5 (Compute Node)
 azure-cyclecloud-hpc-workshop/
 │
 ├── docs/
-│   ├── basic/     # Core Workshop (L200)
-│   ├── advanced/  # Advanced Add-on (L250)
-│   └── images/    # Architecture & Diagram
+│   ├── 01-basic/     # Core Workshop (L200)
+│   ├── 02-advanced/  # Advanced Add-on (L250)
+│   └── 99-images/    # Architecture & Diagram
 └── scripts/       # Sample Job Scripts
 ```
 
@@ -127,9 +127,9 @@ azure-cyclecloud-hpc-workshop/
 
 # Quick Start
 
-1️⃣ `docs/basic/Step00_Concept.md`부터 순서대로 진행합니다.
+1️⃣ `docs/01-basic/Step00_Concept.md`부터 순서대로 진행합니다.
 2️⃣ Step05까지 완료하면 기본 HPC Autoscale 흐름을 이해하게 됩니다.
-3️⃣ 더 깊이 있는 내용을 원하면 `docs/advanced/` 단계로 이동하세요.
+3️⃣ 더 깊이 있는 내용을 원하면 `docs/02-advanced/` 단계로 이동하세요.
 
 ---
 

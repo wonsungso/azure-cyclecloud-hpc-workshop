@@ -105,7 +105,7 @@ sbatch
 
 ## 6️⃣ 아키텍처 다이어그램
 
-![CycleCloud Core Architecture](./../images/00_concept-architecture-diagram.png)
+![CycleCloud Core Architecture](./../99-images/00_concept-architecture-diagram.png)
 
 ### 구성요소 설명
 - Orchestrator: 클러스터 수명주기 관리
