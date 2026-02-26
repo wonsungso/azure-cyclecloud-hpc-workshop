@@ -16,7 +16,7 @@
 
 ---
 
-# 1. Autoscale 개념 다시 이해하기
+# 1️⃣ Autoscale 개념 다시 이해하기
 
 Azure HPC에서 Autoscale은 다음 흐름으로 동작합니다.
 
@@ -47,7 +47,7 @@ Compute Node 자동 삭제
 
 ---
 
-# 2. 현재 상태 확인
+# 2️⃣ 현재 상태 확인
 
 Login Node에서 먼저 상태를 확인합니다.
 
@@ -59,7 +59,7 @@ sinfo
 
 ---
 
-# 3. Autoscale 테스트 준비
+# 3️⃣ Autoscale 테스트 준비
 
 이번 실습에서는 동시에 여러 Job을 제출하여
 추가 Compute Node가 생성되는 것을 관찰합니다.
@@ -101,7 +101,7 @@ sleep 120
 
 ---
 
-# 4. 여러 Job 제출
+# 4️⃣ 여러 Job 제출
 
 다음 명령을 반복 실행합니다.
 
@@ -137,7 +137,7 @@ JOBID PARTITION NAME USER ST
 
 ---
 
-# 5. Azure Portal에서 Autoscale 관찰
+# 5️⃣ Azure Portal에서 Autoscale 관찰
 
 Azure Portal → Virtual Machines 이동
 
@@ -156,7 +156,7 @@ compute-2
 
 ---
 
-# 6. Job 완료 후 Scale-in 관찰
+# 6️⃣ Job 완료 후 Scale-in 관찰
 
 약 2~3분 후 Job이 종료되면:
 
@@ -178,7 +178,7 @@ Idle timeout은 Template 설정에 따라 다릅니다.
 
 ---
 
-# 7. Autoscale 동작 핵심 요약
+# 7️⃣ Autoscale 동작 핵심 요약
 
 이번 실습에서 확인한 흐름:
 
@@ -197,7 +197,7 @@ Azure HPC는 "필요할 때만 VM을 생성"합니다.
 
 ---
 
-# 8. Azure HPC 비용 관점 이해
+# 8️⃣ Azure HPC 비용 관점 이해
 
 비용이 발생하는 주요 리소스:
 
@@ -214,7 +214,7 @@ Job이 없을 때 Compute 비용 최소화 가능
 
 ---
 
-# 9. 워크샵 리소스 정리 (매우 중요)
+# 9️⃣ 워크샵 리소스 정리 (매우 중요)
 
 워크샵 종료 시 반드시 리소스를 정리합니다.
 

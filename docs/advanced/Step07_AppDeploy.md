@@ -20,7 +20,7 @@
 
 ---
 
-# 1. HPC 환경에서 Application이 실행되는 방식
+# 1️⃣ HPC 환경에서 Application이 실행되는 방식
 
 일반 VM과 HPC의 가장 큰 차이:
 
@@ -50,7 +50,7 @@ Compute Node는 Stateless하게 동작합니다.
 
 ---
 
-# 2. Shared Storage 확인
+# 2️⃣ Shared Storage 확인
 
 먼저 Login Node에서 Shared Storage가 마운트되어 있는지 확인합니다.
 
@@ -68,7 +68,7 @@ df -h
 
 ---
 
-# 3. Sample HPC Application 준비
+# 3️⃣ Sample HPC Application 준비
 
 이번 실습에서는 Lightweight Application으로
 **CPU 병렬 테스트 스크립트**를 사용합니다.
@@ -130,7 +130,7 @@ chmod +x run-app.sh
 
 ---
 
-# 4. Slurm Job Script 작성
+# 4️⃣ Slurm Job Script 작성
 
 Application을 Scheduler에 제출하기 위한 sbatch 스크립트를 생성합니다.
 
@@ -152,7 +152,7 @@ nano app-job.sh
 
 ---
 
-# 5. Application Job 실행
+# 5️⃣ Application Job 실행
 
 ```bash
 sbatch app-job.sh
@@ -181,7 +181,7 @@ JOBID PARTITION NAME USER ST TIME NODES NODELIST
 
 ---
 
-# 6. Application 실행 결과 확인
+# 6️⃣ Application 실행 결과 확인
 
 Job 완료 후:
 
@@ -203,7 +203,7 @@ Application이 Compute Node에서 실행되었음을 의미합니다.
 
 ---
 
-# 7. HPC Application Deployment 구조 이해 (Tutorials 기반)
+# 7️⃣ HPC Application Deployment 구조 이해 (Tutorials 기반)
 
 이번 Step에서 사용한 구조는 실제 HPC 환경과 매우 유사합니다.
 
@@ -225,7 +225,7 @@ Template보다 Application Stack은 Storage에 위치합니다.
 
 ---
 
-# 8. Container 기반 HPC (개념 소개 – Optional)
+# 8️⃣ Container 기반 HPC (개념 소개 – Optional)
 
 cyclecloud_tutorials에서는 Container 기반 Job도 소개됩니다.
 
@@ -244,7 +244,7 @@ Production HPC에서는 다음 장점이 있습니다.
 
 ---
 
-# 9. Advanced 흐름 정리
+# 9️⃣ Advanced 흐름 정리
 
 지금까지 Advanced Step에서 배운 내용:
 

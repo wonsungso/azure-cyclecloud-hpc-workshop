@@ -17,7 +17,7 @@
 
 ---
 
-# 1. 전체 아키텍처에서 Step01 위치
+# 1️⃣ 전체 아키텍처에서 Step01 위치
 
 이번 Step은 아래 구조에서 **기초 인프라 레이어**를 만드는 과정입니다.
 
@@ -31,7 +31,7 @@ Azure Subscription
 
 ---
 
-# 2. Resource Group 생성
+# 2️⃣ Resource Group 생성
 
 ## Resource Group이 중요한 이유
 
@@ -46,9 +46,9 @@ HPC 환경은 VM이 동적으로 생성/삭제되므로
 
 ## Azure Portal 생성 절차
 
-1. Azure Portal 접속
-2. 상단 검색창 → **Resource Groups**
-3. **Create** 선택
+1️⃣ Azure Portal 접속
+2️⃣ 상단 검색창 → **Resource Groups**
+3️⃣ **Create** 선택
 
 설정 값:
 
@@ -58,7 +58,7 @@ HPC 환경은 VM이 동적으로 생성/삭제되므로
 | Resource Group Name | rg-cyclecloud-hpc-lab       |
 | Region              | Korea Central (또는 사용 가능 리전) |
 
-4. Review + Create → Create
+4️⃣ Review + Create → Create
 
 ---
 
@@ -70,7 +70,7 @@ Resource Group 목록에서 다음 확인:
 
 ---
 
-# 3. Virtual Network 및 Subnet 구성
+# 3️⃣ Virtual Network 및 Subnet 구성
 
 ## HPC에서 Network가 중요한 이유
 
@@ -95,8 +95,8 @@ Resource Group 목록에서 다음 확인:
 
 ## VNet 생성 절차
 
-1. Azure Portal 검색 → **Virtual Network**
-2. Create 선택
+1️⃣ Azure Portal 검색 → **Virtual Network**
+2️⃣ Create 선택
 
 ### Basics
 
@@ -113,14 +113,14 @@ Resource Group 목록에서 다음 확인:
 
 ### Subnet 추가
 
-#### 1. Management Subnet
+#### 1️⃣ Management Subnet
 
 ```
 Name: snet-management
 Address range: 10.10.1.0/24
 ```
 
-#### 2. Compute Subnet
+#### 2️⃣ Compute Subnet
 
 ```
 Name: snet-compute
@@ -142,7 +142,7 @@ Virtual Network → Subnets 탭에서:
 
 ---
 
-# 4. NSG (Network Security Group) 개념
+# 4️⃣ NSG (Network Security Group) 개념
 
 이번 워크샵에서는 최소 구성만 사용합니다.
 
@@ -158,7 +158,7 @@ HPC 환경은 보통 내부 네트워크 중심으로 동작합니다.
 
 ---
 
-# 5. Shared Storage 준비 (Azure Files)
+# 5️⃣ Shared Storage 준비 (Azure Files)
 
 ## HPC에서 Shared Storage가 필요한 이유
 
@@ -181,8 +181,8 @@ HPC 환경은 보통 내부 네트워크 중심으로 동작합니다.
 
 ## Storage Account 생성
 
-1. Azure Portal → **Storage Accounts**
-2. Create 선택
+1️⃣ Azure Portal → **Storage Accounts**
+2️⃣ Create 선택
 
 ### Basics
 
@@ -201,8 +201,8 @@ Create 클릭
 
 Storage Account 생성 후:
 
-1. 좌측 메뉴 → **File shares**
-2. * File share 선택
+1️⃣ 좌측 메뉴 → **File shares**
+2️⃣ * File share 선택
 
 설정:
 
@@ -227,7 +227,7 @@ shared
 
 ---
 
-# 6. HPC 관점에서 지금 만든 리소스 역할 정리
+# 6️⃣ HPC 관점에서 지금 만든 리소스 역할 정리
 
 | 리소스               | HPC 역할                 |
 | ----------------- | ---------------------- |

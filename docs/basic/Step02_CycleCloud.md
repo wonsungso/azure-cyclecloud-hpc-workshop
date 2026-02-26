@@ -20,7 +20,7 @@
 
 ---
 
-# 1. Azure CycleCloud 역할 다시 이해하기
+# 1️⃣ Azure CycleCloud 역할 다시 이해하기
 
 혼동이 발생하기 쉬운 영역이므로 다시 정리합니다.
 
@@ -52,14 +52,14 @@ Slurm Cluster (다음 Step에서 생성)
 
 ---
 
-# 2. Azure CycleCloud 배포 (Portal)
+# 2️⃣ Azure CycleCloud 배포 (Portal)
 
 ## Marketplace에서 생성
 
-1. Azure Portal 상단 검색창
-2. **CycleCloud** 검색
-3. **Azure CycleCloud** 선택
-4. Create 클릭
+1️⃣ Azure Portal 상단 검색창
+2️⃣ **CycleCloud** 검색
+3️⃣ **Azure CycleCloud** 선택
+4️⃣ Create 클릭
 
 ---
 
@@ -89,7 +89,7 @@ CycleCloud는 Control Plane이므로
 
 ---
 
-# 3. Networking 설정
+# 3️⃣ Networking 설정
 
 ## 매우 중요
 
@@ -114,7 +114,7 @@ Public IP: Enabled
 
 ---
 
-# 4. Identity (권한) 개념
+# 4️⃣ Identity (권한) 개념
 
 CycleCloud는 Azure VM을 대신 생성해야 합니다.
 
@@ -133,7 +133,7 @@ Azure 리소스 생성 권한을 사용하게 됩니다.
 
 ---
 
-# 5. Review + Create
+# 5️⃣ Review + Create
 
 설정 확인 후:
 
@@ -146,13 +146,13 @@ Azure 리소스 생성 권한을 사용하게 됩니다.
 
 ---
 
-# 6. CycleCloud Web Portal 접속
+# 6️⃣ CycleCloud Web Portal 접속
 
 배포 완료 후:
 
-1. 생성된 VM 리소스 이동
-2. Public IP 확인
-3. 브라우저에서 접속
+1️⃣ 생성된 VM 리소스 이동
+2️⃣ Public IP 확인
+3️⃣ 브라우저에서 접속
 
 ```text
 https://<Public-IP>
@@ -176,7 +176,7 @@ VM 생성 시 설정한:
 
 ---
 
-# 7. CycleCloud 초기 화면 이해
+# 7️⃣ CycleCloud 초기 화면 이해
 
 접속 후 확인할 수 있는 주요 메뉴:
 
@@ -197,7 +197,7 @@ VM 생성 시 설정한:
 
 ---
 
-# 8. 네트워크 구조 현재 상태
+# 8️⃣ 네트워크 구조 현재 상태
 
 지금까지 구성된 Azure 리소스 흐름:
 

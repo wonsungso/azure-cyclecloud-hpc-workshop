@@ -24,7 +24,7 @@
 
 ---
 
-# 1. Slurm Cluster 구조 다시 보기
+# 1️⃣ Slurm Cluster 구조 다시 보기
 
 이번 Step에서 만들 구조는 다음과 같습니다.
 
@@ -45,15 +45,15 @@ CycleCloud
 
 ---
 
-# 2. CycleCloud UI에서 Cluster 생성 시작
+# 2️⃣ CycleCloud UI에서 Cluster 생성 시작
 
-1. CycleCloud Web Portal 접속
-2. 상단 메뉴 → **Clusters**
-3. **Create Cluster** 선택
+1️⃣ CycleCloud Web Portal 접속
+2️⃣ 상단 메뉴 → **Clusters**
+3️⃣ **Create Cluster** 선택
 
 ---
 
-# 3. Template 선택
+# 3️⃣ Template 선택
 
 Template 목록에서:
 
@@ -72,7 +72,7 @@ Next 클릭
 
 ---
 
-# 4. Cluster 기본 설정
+# 4️⃣ Cluster 기본 설정
 
 ## General Settings
 
@@ -95,7 +95,7 @@ Login/Controller Node는 Management Subnet에 위치합니다.
 
 ---
 
-# 5. Node 구성 이해
+# 5️⃣ Node 구성 이해
 
 Slurm Template에는 여러 Node Type이 존재합니다.
 
@@ -134,7 +134,7 @@ Min=0 설정 이유:
 
 ---
 
-# 6. Partition 개념 이해
+# 6️⃣ Partition 개념 이해
 
 Slurm에서는 Compute Node를 Partition으로 그룹화합니다.
 
@@ -157,7 +157,7 @@ compute partition 하나만 사용
 
 ---
 
-# 7. Shared Storage 연결
+# 7️⃣ Shared Storage 연결
 
 Step01에서 만든 Azure Files가 자동 마운트될 수 있습니다.
 
@@ -172,12 +172,12 @@ CycleCloud Template 기본 설정:
 
 ---
 
-# 8. Cluster 생성 실행
+# 8️⃣ Cluster 생성 실행
 
 설정 완료 후:
 
-1. Save 클릭
-2. Start 클릭
+1️⃣ Save 클릭
+2️⃣ Start 클릭
 
 Cluster 상태가 다음 단계로 진행됩니다.
 
@@ -189,7 +189,7 @@ Starting → Provisioning → Running
 
 ---
 
-# 9. Azure Portal에서 확인되는 리소스
+# 9️⃣ Azure Portal에서 확인되는 리소스
 
 Cluster 생성이 시작되면 Azure Portal에서:
 
@@ -208,7 +208,7 @@ Min Nodes = 0
 
 ---
 
-# 10. Cluster 상태 확인
+# 🔟 Cluster 상태 확인
 
 CycleCloud UI → Clusters 화면에서:
 

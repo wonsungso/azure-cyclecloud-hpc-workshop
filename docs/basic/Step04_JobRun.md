@@ -16,7 +16,7 @@ Scheduler가 어떻게 동작하는지 직접 확인합니다.
 
 ---
 
-# 1. HPC Job 흐름 다시 이해하기
+# 1️⃣ HPC Job 흐름 다시 이해하기
 
 지금까지 만든 구조에서 Job 실행 흐름은 다음과 같습니다.
 
@@ -43,13 +43,13 @@ Compute Node = 0
 
 ---
 
-# 2. Login Node SSH 접속
+# 2️⃣ Login Node SSH 접속
 
 ## Azure Portal에서 IP 확인
 
-1. CycleCloud UI → Cluster → Login Node 확인
+1️⃣ CycleCloud UI → Cluster → Login Node 확인
    또는
-2. Azure Portal → VM 목록 → Login Node 선택
+2️⃣ Azure Portal → VM 목록 → Login Node 선택
 
 Public IP 확인 후 접속:
 
@@ -69,7 +69,7 @@ ssh <username>@<LoginNodePublicIP>
 
 ---
 
-# 3. Slurm 상태 확인
+# 3️⃣ Slurm 상태 확인
 
 먼저 Scheduler 상태를 확인합니다.
 
@@ -104,7 +104,7 @@ squeue
 
 ---
 
-# 4. 첫 번째 테스트 Job 실행 (srun)
+# 4️⃣ 첫 번째 테스트 Job 실행 (srun)
 
 간단한 테스트로 CPU Job을 실행합니다.
 
@@ -114,14 +114,14 @@ srun hostname
 
 ### 예상 동작
 
-1. Scheduler가 실행 요청 감지
-2. Compute Node 필요 판단
-3. CycleCloud가 Azure VM 생성 요청
-4. Compute Node 부팅 후 Job 실행
+1️⃣ Scheduler가 실행 요청 감지
+2️⃣ Compute Node 필요 판단
+3️⃣ CycleCloud가 Azure VM 생성 요청
+4️⃣ Compute Node 부팅 후 Job 실행
 
 ---
 
-# 5. Azure Portal에서 Autoscale 확인
+# 5️⃣ Azure Portal에서 Autoscale 확인
 
 Job 실행 후 몇 분 내:
 
@@ -137,7 +137,7 @@ compute-xxxx
 
 ---
 
-# 6. Job 실행 결과 확인
+# 6️⃣ Job 실행 결과 확인
 
 Job 완료 후 콘솔 출력 예시:
 
@@ -149,7 +149,7 @@ compute-0
 
 ---
 
-# 7. 배치 Job 실행 (sbatch)
+# 7️⃣ 배치 Job 실행 (sbatch)
 
 이번에는 Batch 방식으로 실행합니다.
 
@@ -219,7 +219,7 @@ JOBID PARTITION NAME USER ST TIME NODES NODELIST
 
 ---
 
-# 8. HPC Scheduler 동작 정리
+# 8️⃣ HPC Scheduler 동작 정리
 
 지금까지 발생한 일:
 

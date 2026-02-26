@@ -127,9 +127,9 @@ azure-cyclecloud-hpc-workshop/
 
 # Quick Start
 
-1. `docs/basic/Step00_Concept.md`부터 순서대로 진행합니다.
-2. Step05까지 완료하면 기본 HPC Autoscale 흐름을 이해하게 됩니다.
-3. 더 깊이 있는 내용을 원하면 `docs/advanced/` 단계로 이동하세요.
+1️⃣ `docs/basic/Step00_Concept.md`부터 순서대로 진행합니다.
+2️⃣ Step05까지 완료하면 기본 HPC Autoscale 흐름을 이해하게 됩니다.
+3️⃣ 더 깊이 있는 내용을 원하면 `docs/advanced/` 단계로 이동하세요.
 
 ---
 
@@ -152,9 +152,9 @@ azure-cyclecloud-hpc-workshop/
 
 워크샵 종료 후 반드시 다음을 수행하세요.
 
-1. Slurm Cluster Stop
-2. CycleCloud VM Stop
-3. Resource Group Delete
+1️⃣ Slurm Cluster Stop
+2️⃣ CycleCloud VM Stop
+3️⃣ Resource Group Delete
 
 리소스를 삭제하지 않으면 비용이 발생할 수 있습니다.
 

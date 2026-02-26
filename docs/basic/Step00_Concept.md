@@ -14,7 +14,7 @@
 
 ---
 
-## 1. HPC란 무엇인가?
+## 1️⃣ HPC란 무엇인가?
 가장 기본적으로 HPC 시스템은 다음 조합으로 이루어진 “계산 리소스 풀”입니다.
 
 - 다수의 계산 노드(Compute/Execute Nodes)
@@ -33,7 +33,7 @@ HPC 스케줄러는 여러 사용자의 작업(Job)을 큐(Queue)에 적재하�
 
 ---
 
-## 2. HPC에서 Scheduler가 필요한 이유
+## 2️⃣ HPC에서 Scheduler가 필요한 이유
 여러 사용자가 동시에 Job을 제출하면, 다음을 누가 결정해야 합니다.
 
 - 어떤 Job을 먼저 실행할지 (우선순위/정책)
@@ -62,7 +62,7 @@ sbatch
 
 ---
 
-## 3. Azure CycleCloud는 무엇인가?
+## 3️⃣ Azure CycleCloud는 무엇인가?
 **Azure CycleCloud는 Azure에서 HPC 시스템을 구성/배포/운영하도록 돕는 플랫폼**입니다.
 
 중요 포인트:
@@ -72,7 +72,7 @@ sbatch
 
 ---
 
-## 4. CycleCloud 아키텍처(핵심 구성요소)
+## 4️⃣ CycleCloud 아키텍처(핵심 구성요소)
 
 ### 4.1 애플리케이션 서버(Application Server)가 제공하는 것
 - REST API: 클러스터 관리 인터페이스
@@ -88,7 +88,7 @@ sbatch
 
 ---
 
-## 5. CycleCloud VM vs Cluster VM – 역할 분리
+## 5️⃣ CycleCloud VM vs Cluster VM – 역할 분리
 
 ### 5.1 CycleCloud VM (Application Server)
 - 클러스터 관리 서버
@@ -101,7 +101,7 @@ sbatch
 
 ---
 
-## 6. 아키텍처 다이어그램
+## 6️⃣ 아키텍처 다이어그램
 
 ![CycleCloud Core Architecture](./../images/00_concept-architecture-diagram.png)
 
@@ -120,7 +120,7 @@ sbatch
 
 ---
 
-## 7. 노드 역할 정리
+## 7️⃣ 노드 역할 정리
 
 ### Login Node
 - SSH 접속 및 Job 제출
@@ -134,7 +134,7 @@ sbatch
 
 ---
 
-## 8. Autoscale 흐름
+## 8️⃣ Autoscale 흐름
 ```text
 1) Job 제출
 2) Scheduler Queue 확인

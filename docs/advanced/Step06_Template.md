@@ -20,7 +20,7 @@
 
 ---
 
-# 1. 왜 Template Customizing이 필요한가?
+# 1️⃣ 왜 Template Customizing이 필요한가?
 
 기본 워크샵에서는 Slurm Template을 그대로 사용했습니다.
 
@@ -54,13 +54,13 @@ Template 정의를 참고하여 Compute Node를 생성합니다.
 
 ---
 
-# 2. CycleCloud UI에서 Template 확인
+# 2️⃣ CycleCloud UI에서 Template 확인
 
 ## Template 화면 이동
 
-1. CycleCloud Web Portal 접속
-2. 상단 메뉴 → **Templates**
-3. 현재 사용 중인 Slurm Template 선택
+1️⃣ CycleCloud Web Portal 접속
+2️⃣ 상단 메뉴 → **Templates**
+3️⃣ 현재 사용 중인 Slurm Template 선택
 
 예시:
 
@@ -83,7 +83,7 @@ Template 화면에서는 다음과 같은 요소를 확인할 수 있습니다.
 
 ---
 
-# 3. Nodearray 개념 이해 (중요)
+# 3️⃣ Nodearray 개념 이해 (중요)
 
 Nodearray는 Compute Node의 정의 단위입니다.
 
@@ -116,7 +116,7 @@ Clusters → slurm-hpc-lab → Edit
 
 ---
 
-# 4. Template Customizing 예제 (학습용)
+# 4️⃣ Template Customizing 예제 (학습용)
 
 이번 실습에서는 실제로 Cluster를 크게 변경하지 않고
 Nodearray 설정을 관찰하고 일부 값을 수정하는 흐름을 이해합니다.
@@ -137,9 +137,9 @@ Max Node 수 변경
 
 ## Template 수정
 
-1. Templates 메뉴 이동
-2. Slurm Template 선택
-3. Nodearray 영역 찾기
+1️⃣ Templates 메뉴 이동
+2️⃣ Slurm Template 선택
+3️⃣ Nodearray 영역 찾기
 
 예시 설정:
 
@@ -167,13 +167,13 @@ Cluster의 "설계도"
 
 ---
 
-# 5. Cluster Update 수행
+# 5️⃣ Cluster Update 수행
 
 Template 변경 후:
 
-1. Clusters 메뉴 이동
-2. slurm-hpc-lab 선택
-3. **Update** 또는 **Apply Changes** 클릭
+1️⃣ Clusters 메뉴 이동
+2️⃣ slurm-hpc-lab 선택
+3️⃣ **Update** 또는 **Apply Changes** 클릭
 
 Cluster 상태:
 
@@ -183,7 +183,7 @@ Updating → Running
 
 ---
 
-# 6. Autoscale과 Template의 연결 이해
+# 6️⃣ Autoscale과 Template의 연결 이해
 
 이제 Scheduler는 다음 정보를 기반으로 Node를 생성합니다.
 
@@ -197,7 +197,7 @@ Template Customizing은 Autoscale 동작 자체를 바꾸는 작업입니다.
 
 ---
 
-# 7. Dynamic Partition 개념 (Tutorials 기반)
+# 7️⃣ Dynamic Partition 개념 (Tutorials 기반)
 
 cyclecloud_tutorials에서 중요한 개념 중 하나는 Dynamic Partition입니다.
 
@@ -212,7 +212,7 @@ Dynamic Partition 특징:
 
 ---
 
-# 8. Template 변경 시 주의사항 (실무 팁)
+# 8️⃣ Template 변경 시 주의사항 (실무 팁)
 
 * Head Node VM Size 변경은 재배포 필요 가능
 * Subnet 변경 시 네트워크 충돌 발생 가능
