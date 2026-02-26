@@ -253,6 +253,7 @@ Production HPC에서는 다음 장점이 있습니다.
 ```text
 Step06 – Template 구조 이해
 Step07 – Application Deployment 흐름 이해
+Step08 – (Optional) NGC + Enroot/Pyxis 기반 GPU Container Job
 ```
 
 즉,
@@ -286,3 +287,12 @@ Shared Storage 기반 Application 실행
 
 이 단계까지 완료했다면 Azure CycleCloud + Slurm HPC 환경의
 기본 구성부터 Advanced 개념까지 이해한 상태입니다.
+
+---
+
+# Optional 다음 Step
+
+GPU 기반 Container 워크로드까지 확장하고 싶다면,
+다음 문서를 이어서 진행하세요.
+
+* [Step08 – NGC + Enroot/Pyxis 기반 GPU Container Job (Optional)](./Step08_NGC_Enroot.md)

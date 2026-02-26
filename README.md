@@ -1,4 +1,4 @@
-# Azure CycleCloud + Slurm HPC Workshop (L200–L250)
+# Azure CycleCloud + Slurm HPC Workshop (L200–L300)
 
 Azure Portal 기준으로 **Azure CycleCloud와 Slurm 기반 HPC 클러스터**를 구축하고,
 Autoscale 동작부터 Template Customizing, Application Deployment까지 단계적으로 학습하는 Hands-on Workshop입니다.
@@ -36,7 +36,7 @@ Autoscale 동작부터 Template Customizing, Application Deployment까지 단계
 
 # Workshop Tracks
 
-이 저장소는 두 가지 난이도로 구성됩니다.
+이 저장소는 세 가지 난이도로 구성됩니다.
 
 ---
 
@@ -68,7 +68,7 @@ docs/01-basic/
 
 ---
 
-## Advanced Workshop (L250 – Optional)
+## Advanced Workshop (L250)
 
 CycleCloud Tutorials 내용을 Portal 중심 워크샵에 맞게 재구성한 Advanced 과정입니다.
 
@@ -89,6 +89,32 @@ CycleCloud Tutorials 내용을 Portal 중심 워크샵에 맞게 재구성한 Ad
 docs/02-advanced/
  Step06_Template.md
  Step07_AppDeploy.md
+```
+
+---
+
+## GPU Extension (L300 – Optional)
+
+GPU Container 워크로드 및 멀티노드 통신 검증까지 다루는 확장 과정입니다.
+
+다음 개념을 다룹니다.
+
+* NGC + Enroot/Pyxis 기반 Slurm 컨테이너 실행
+* sbatch 기반 멀티노드 NCCL all-reduce 검증
+
+### Steps
+
+* Step08 – NGC + Enroot/Pyxis 기반 GPU Container Job
+
+Step08 실습용 샘플 스크립트:
+
+* `scripts/nccl-allreduce.sbatch` (sbatch 기반 멀티노드 GPU 통신 검증 예제)
+
+`docs/02-advanced/` 폴더의 Optional 확장 단계
+
+```
+docs/02-advanced/
+ Step08_NGC_Enroot.md
 ```
 
 ---
@@ -118,7 +144,7 @@ azure-cyclecloud-hpc-workshop/
 │
 ├── docs/
 │   ├── 01-basic/     # Core Workshop (L200)
-│   ├── 02-advanced/  # Advanced Add-on (L250)
+│   ├── 02-advanced/  # Advanced (L250) + GPU Extension (L300)
 │   └── 99-images/    # Architecture & Diagram
 └── scripts/       # Sample Job Scripts
 ```
@@ -129,7 +155,8 @@ azure-cyclecloud-hpc-workshop/
 
 1️⃣ `docs/01-basic/Step00_Concept.md`부터 순서대로 진행합니다.
 2️⃣ Step05까지 완료하면 기본 HPC Autoscale 흐름을 이해하게 됩니다.
-3️⃣ 더 깊이 있는 내용을 원하면 `docs/02-advanced/` 단계로 이동하세요.
+3️⃣ 심화 학습은 Step06~07(L250)로 진행하세요.
+4️⃣ GPU 컨테이너 확장이 필요하면 Step08(L300 Optional)을 진행하세요.
 
 ---
 
@@ -144,7 +171,7 @@ azure-cyclecloud-hpc-workshop/
   * RBAC 최소 권한
   * NAT Gateway
 
-* GPU Cluster 및 Container HPC는 Advanced 확장 영역입니다.
+* GPU Cluster 및 Container HPC는 L300 Optional 확장 영역입니다.
 
 ---
 
