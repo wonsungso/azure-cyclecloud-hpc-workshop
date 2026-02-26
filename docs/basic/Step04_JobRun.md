@@ -1,8 +1,8 @@
-# Step04 – Job 실행 및 Slurm Scheduler 동작 이해
+# Step04 – JobRun
 
 ---
 
-## 🎯 학습 목표
+## 학습 목표
 
 이번 Step에서는 Slurm HPC Cluster에 실제 Job을 제출하고
 Scheduler가 어떻게 동작하는지 직접 확인합니다.
@@ -20,7 +20,7 @@ Scheduler가 어떻게 동작하는지 직접 확인합니다.
 
 지금까지 만든 구조에서 Job 실행 흐름은 다음과 같습니다.
 
-```id="d8ndxt"
+```text
 User SSH 접속
       │
       ▼
@@ -35,7 +35,7 @@ Compute Node (필요 시 생성)
 
 현재 상태:
 
-```id="e8nvh9"
+```text
 Compute Node = 0
 ```
 
@@ -45,7 +45,7 @@ Compute Node = 0
 
 # 2. Login Node SSH 접속
 
-## 🔧 Azure Portal에서 IP 확인
+## Azure Portal에서 IP 확인
 
 1. CycleCloud UI → Cluster → Login Node 확인
    또는
@@ -53,17 +53,17 @@ Compute Node = 0
 
 Public IP 확인 후 접속:
 
-```bash id="fqqlp3"
+```bash
 ssh <username>@<LoginNodePublicIP>
 ```
 
 ---
 
-## ✔️ 접속 확인
+## 접속 확인
 
 로그인 후 다음 프롬프트 확인:
 
-```id="bnx0qg"
+```text
 [azureuser@login-node ~]$
 ```
 
@@ -75,15 +75,15 @@ ssh <username>@<LoginNodePublicIP>
 
 ---
 
-## 🔎 노드 상태 확인
+## 노드 상태 확인
 
-```bash id="1c0m6c"
+```bash
 sinfo
 ```
 
 예상 결과:
 
-```id="o0a4fc"
+```text
 PARTITION AVAIL  TIMELIMIT  NODES  STATE
 compute   up     infinite      0   idle
 ```
@@ -94,13 +94,13 @@ compute   up     infinite      0   idle
 
 ---
 
-## 🔎 Job Queue 확인
+## Job Queue 확인
 
-```bash id="qs93u4"
+```bash
 squeue
 ```
 
-현재는 비어있어야 정상입니다.
+현재는 비어 있는 상태가 예상 결과입니다.
 
 ---
 
@@ -108,7 +108,7 @@ squeue
 
 간단한 테스트로 CPU Job을 실행합니다.
 
-```bash id="pq3q7l"
+```bash
 srun hostname
 ```
 
@@ -129,11 +129,11 @@ Azure Portal → Virtual Machines 이동
 
 다음 VM이 생성되는 것을 확인할 수 있습니다.
 
-```id="e4sgh3"
+```text
 compute-xxxx
 ```
 
-📌 이것이 CycleCloud Autoscale입니다.
+이것이 CycleCloud Autoscale입니다.
 
 ---
 
@@ -141,7 +141,7 @@ compute-xxxx
 
 Job 완료 후 콘솔 출력 예시:
 
-```id="z6oj89"
+```text
 compute-0
 ```
 
@@ -155,15 +155,29 @@ compute-0
 
 ---
 
-## 🔧 샘플 Job Script 생성
+## 샘플 Job Script 생성
 
-```bash id="5lqv4o"
+복사/붙여넣기 대신 저장소의 샘플 스크립트를 그대로 사용하려면(권장), **로컬 저장소 루트**에서 아래 명령으로 업로드할 수 있습니다.
+
+```bash
+scp scripts/test-job.sh <username>@<LoginNodePublicIP>:~/
+```
+
+Login Node에서 확인:
+
+```bash
+ls -l ~/test-job.sh
+```
+
+또는 아래처럼 직접 생성해도 됩니다.
+
+```bash
 nano test-job.sh
 ```
 
 내용 입력:
 
-```bash id="7p0m3u"
+```bash
 #!/bin/bash
 #SBATCH --job-name=test
 #SBATCH --output=output.txt
@@ -176,29 +190,29 @@ sleep 30
 
 ---
 
-## 🔧 Job 제출
+## Job 제출
 
-```bash id="7x7q7f"
+```bash
 sbatch test-job.sh
 ```
 
 출력 예시:
 
-```id="d3g2lm"
+```text
 Submitted batch job 1
 ```
 
 ---
 
-## 🔎 Queue 상태 확인
+## Queue 상태 확인
 
-```bash id="rbh0d3"
+```bash
 squeue
 ```
 
 상태 예시:
 
-```id="rm4yvh"
+```text
 JOBID PARTITION NAME USER ST TIME NODES NODELIST
 1 compute test azureuser R 0:02 1 compute-0
 ```
@@ -209,7 +223,7 @@ JOBID PARTITION NAME USER ST TIME NODES NODELIST
 
 지금까지 발생한 일:
 
-```id="z8ok92"
+```text
 1) User가 Job 제출
 2) Slurm Scheduler가 Queue 생성
 3) Compute Node 부족 감지
@@ -219,11 +233,11 @@ JOBID PARTITION NAME USER ST TIME NODES NODELIST
 
 즉,
 
-👉 Scheduler가 Autoscale을 간접적으로 트리거합니다.
+Scheduler가 Autoscale을 간접적으로 트리거합니다.
 
 ---
 
-# ✔️ Step04 완료 체크리스트
+# Step04 완료 체크리스트
 
 * [ ] Login Node SSH 접속 성공
 * [ ] sinfo 명령 실행 확인
@@ -234,7 +248,7 @@ JOBID PARTITION NAME USER ST TIME NODES NODELIST
 
 ---
 
-# ➡️ 다음 Step
+# 다음 Step
 
 Step05에서는:
 

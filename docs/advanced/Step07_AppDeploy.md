@@ -1,8 +1,8 @@
-# Step07 – HPC Application Deployment & Job 실행 (Advanced)
+# Step07 – AppDeploy
 
 ---
 
-## 🎯 학습 목표
+## 학습 목표
 
 이번 Advanced Step에서는 Slurm HPC Cluster 위에 **실제 애플리케이션 형태의 워크로드**를 실행합니다.
 
@@ -16,7 +16,7 @@
 * sbatch를 통한 실제 workload 실행 흐름
 * Cluster Template과 Application Stack의 관계 이해
 
-> ⚠️ Production용 HPC Application 설치가 아니라, 구조 이해를 위한 Lightweight 예제입니다.
+> Production용 HPC Application 설치가 아니라, 구조 이해를 위한 Lightweight 예제입니다.
 
 ---
 
@@ -24,14 +24,14 @@
 
 일반 VM과 HPC의 가장 큰 차이:
 
-```id="m7bz6r"
+```text
 Application은 개별 VM이 아니라
 Cluster Shared Storage 위에 위치합니다.
 ```
 
 흐름:
 
-```id="e0cb1k"
+```text
 Application 설치 (/shared/app)
         │
         ▼
@@ -46,7 +46,7 @@ Compute Node가 Shared Storage에서 실행
 
 즉,
 
-👉 Compute Node는 Stateless하게 동작합니다.
+Compute Node는 Stateless하게 동작합니다.
 
 ---
 
@@ -54,17 +54,17 @@ Compute Node가 Shared Storage에서 실행
 
 먼저 Login Node에서 Shared Storage가 마운트되어 있는지 확인합니다.
 
-```bash id="ra7n1q"
+```bash
 df -h
 ```
 
 예상 출력:
 
-```id="q0gj76"
+```text
 /shared
 ```
 
-경로가 보이면 정상입니다.
+경로가 표시되면 정상 상태입니다.
 
 ---
 
@@ -75,24 +75,41 @@ df -h
 
 ---
 
-## 🔧 Application 디렉터리 생성
+## Application 디렉터리 생성
 
-```bash id="wyx2tb"
+```bash
 mkdir -p /shared/apps/sample-app
 cd /shared/apps/sample-app
 ```
 
+복사/붙여넣기 대신 저장소의 샘플 스크립트를 그대로 사용하려면(권장), **로컬 저장소 루트**에서 아래 명령을 실행합니다.
+
+```bash
+scp scripts/run-app.sh <username>@<LoginNodePublicIP>:~/
+scp scripts/app-job.sh <username>@<LoginNodePublicIP>:~/
+```
+
+그다음 Login Node에서 아래처럼 배치합니다.
+
+```bash
+cp ~/run-app.sh /shared/apps/sample-app/run-app.sh
+chmod +x /shared/apps/sample-app/run-app.sh
+ls -l ~/app-job.sh /shared/apps/sample-app/run-app.sh
+```
+
+또는 아래처럼 직접 생성해도 됩니다.
+
 ---
 
-## 🔧 실행 스크립트 생성
+## 실행 스크립트 생성
 
-```bash id="yd5z7f"
+```bash
 nano run-app.sh
 ```
 
 내용 입력:
 
-```bash id="vt8v2v"
+```bash
 #!/bin/bash
 
 echo "Running HPC Sample Application"
@@ -105,9 +122,9 @@ echo "Job Completed"
 
 ---
 
-## 🔧 실행 권한 부여
+## 실행 권한 부여
 
-```bash id="g3v7i4"
+```bash
 chmod +x run-app.sh
 ```
 
@@ -117,13 +134,13 @@ chmod +x run-app.sh
 
 Application을 Scheduler에 제출하기 위한 sbatch 스크립트를 생성합니다.
 
-```bash id="f0yz78"
+```bash
 nano app-job.sh
 ```
 
 내용 입력:
 
-```bash id="czp4fd"
+```bash
 #!/bin/bash
 #SBATCH --job-name=app-test
 #SBATCH --output=app-output.txt
@@ -137,27 +154,27 @@ nano app-job.sh
 
 # 5. Application Job 실행
 
-```bash id="j6h8cz"
+```bash
 sbatch app-job.sh
 ```
 
 출력 예시:
 
-```id="i3c42o"
+```text
 Submitted batch job 2
 ```
 
 ---
 
-## 🔎 Queue 상태 확인
+## Queue 상태 확인
 
-```bash id="sm8snk"
+```bash
 squeue
 ```
 
 예상 상태:
 
-```id="g2fn3b"
+```text
 JOBID PARTITION NAME USER ST TIME NODES NODELIST
 2 compute app-test R 0:03 1 compute-1
 ```
@@ -168,13 +185,13 @@ JOBID PARTITION NAME USER ST TIME NODES NODELIST
 
 Job 완료 후:
 
-```bash id="x3v3kq"
+```bash
 cat app-output.txt
 ```
 
 예상 출력:
 
-```id="rbh8ui"
+```text
 Running HPC Sample Application
 compute-1
 Job Completed
@@ -182,7 +199,7 @@ Job Completed
 
 이 결과는:
 
-👉 Application이 Compute Node에서 실행되었음을 의미합니다.
+Application이 Compute Node에서 실행되었음을 의미합니다.
 
 ---
 
@@ -190,7 +207,7 @@ Job Completed
 
 이번 Step에서 사용한 구조는 실제 HPC 환경과 매우 유사합니다.
 
-```id="l4nv1s"
+```text
 /shared/apps/
         ├── lammps
         ├── mpi-test
@@ -199,12 +216,12 @@ Job Completed
 
 특징:
 
-* Login Node에서 한 번 설치
+* Login Node에서 1회 설치
 * 모든 Compute Node에서 동일하게 실행
 
 즉,
 
-👉 Template보다 Application Stack은 Storage에 위치합니다.
+Template보다 Application Stack은 Storage에 위치합니다.
 
 ---
 
@@ -214,7 +231,7 @@ cyclecloud_tutorials에서는 Container 기반 Job도 소개됩니다.
 
 예:
 
-```id="b3kklk"
+```text
 srun --container-image=<image>
 ```
 
@@ -231,19 +248,19 @@ Production HPC에서는 다음 장점이 있습니다.
 
 지금까지 Advanced Step에서 배운 내용:
 
-```id="l8tsm6"
+```text
 Step06 – Template 구조 이해
 Step07 – Application Deployment 흐름 이해
 ```
 
 즉,
 
-👉 Cluster 구조 + 실제 Application 실행
+Cluster 구조 + 실제 Application 실행
 두 가지를 모두 경험했습니다.
 
 ---
 
-# ✔️ Step07 완료 체크리스트
+# Step07 완료 체크리스트
 
 * [ ] /shared/apps 디렉터리 생성
 * [ ] run-app.sh 생성 및 실행 권한 부여
@@ -254,11 +271,11 @@ Step07 – Application Deployment 흐름 이해
 
 ---
 
-# 🎉 Advanced Workshop 완료
+# Advanced Workshop 완료
 
 이제 다음 내용을 모두 경험했습니다.
 
-```id="yruq8a"
+```text
 Portal 기반 HPC Cluster 구축
 Slurm Autoscale 이해
 Template Customizing

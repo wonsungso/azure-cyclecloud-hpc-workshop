@@ -8,9 +8,9 @@ Autoscale 동작부터 Template Customizing, Application Deployment까지 단계
 
 ---
 
-# 🧭 Workshop 개요
+# Workshop 개요
 
-## 🎯 목표
+## 목표
 
 이 워크샵을 통해 다음을 직접 경험할 수 있습니다.
 
@@ -22,7 +22,7 @@ Autoscale 동작부터 Template Customizing, Application Deployment까지 단계
 
 ---
 
-## 🏗️ Architecture (개념 구조)
+## Architecture (개념 구조)
 
 본 워크샵에서는 다음과 같은 Azure HPC 구조를 구성합니다.
 
@@ -34,13 +34,13 @@ Autoscale 동작부터 Template Customizing, Application Deployment까지 단계
 
 ---
 
-# 📘 Workshop Tracks
+# Workshop Tracks
 
 이 저장소는 두 가지 난이도로 구성됩니다.
 
 ---
 
-## ✅ Core Workshop (L200 – Portal First)
+## Core Workshop (L200 – Portal First)
 
 Azure Portal 기준으로 HPC 환경을 처음부터 구축하며
 Autoscale 흐름을 이해하는 기본 과정입니다.
@@ -54,21 +54,21 @@ Autoscale 흐름을 이해하는 기본 과정입니다.
 * Step04 – Job 실행 & Scheduler 이해
 * Step05 – Autoscale 체험
 
-👉 `docs/` 폴더에서 진행
+`docs/` 폴더에서 진행
 
 ```
-docs/
- Step00.md
- Step01.md
- Step02.md
- Step03.md
- Step04.md
- Step05.md
+docs/basic/
+ Step00_Concept.md
+ Step01_Infra.md
+ Step02_CycleCloud.md
+ Step03_SlurmCluster.md
+ Step04_JobRun.md
+ Step05_Autoscale.md
 ```
 
 ---
 
-## 🚀 Advanced Workshop (L250 – Optional)
+## Advanced Workshop (L250 – Optional)
 
 CycleCloud Tutorials 내용을 Portal 중심 워크샵에 맞게 재구성한 Advanced 과정입니다.
 
@@ -83,17 +83,17 @@ CycleCloud Tutorials 내용을 Portal 중심 워크샵에 맞게 재구성한 Ad
 * Step06 – Template Customizing
 * Step07 – HPC Application Deployment
 
-👉 `advanced/` 폴더에서 진행
+`docs/advanced/` 폴더에서 진행
 
 ```
-advanced/
- Step06-Template-Customizing.md
- Step07-Application-Deployment.md
+docs/advanced/
+ Step06_Template.md
+ Step07_AppDeploy.md
 ```
 
 ---
 
-# ⚙️ Prerequisites
+# Prerequisites
 
 워크샵 시작 전에 다음을 준비해주세요.
 
@@ -111,28 +111,29 @@ Standard_D4as_v5 (Compute Node)
 
 ---
 
-# 📁 Repository Structure
+# Repository Structure
 
 ```
 azure-cyclecloud-hpc-workshop/
 │
-├── docs/          # Core Workshop (L200)
-├── advanced/      # Advanced Add-on (L250)
-├── images/        # Architecture & Diagram
+├── docs/
+│   ├── basic/     # Core Workshop (L200)
+│   ├── advanced/  # Advanced Add-on (L250)
+│   └── images/    # Architecture & Diagram
 └── scripts/       # Sample Job Scripts
 ```
 
 ---
 
-# ▶️ Quick Start
+# Quick Start
 
-1. `docs/Step00.md`부터 순서대로 진행합니다.
+1. `docs/basic/Step00_Concept.md`부터 순서대로 진행합니다.
 2. Step05까지 완료하면 기본 HPC Autoscale 흐름을 이해하게 됩니다.
-3. 더 깊이 있는 내용을 원하면 `advanced/` 단계로 이동하세요.
+3. 더 깊이 있는 내용을 원하면 `docs/advanced/` 단계로 이동하세요.
 
 ---
 
-# 💡 Notes
+# Notes
 
 * 본 워크샵은 학습 목적이며 Production Best Practice를 모두 포함하지 않습니다.
 
@@ -147,7 +148,7 @@ azure-cyclecloud-hpc-workshop/
 
 ---
 
-# 🧹 Cleanup (중요)
+# Cleanup (중요)
 
 워크샵 종료 후 반드시 다음을 수행하세요.
 

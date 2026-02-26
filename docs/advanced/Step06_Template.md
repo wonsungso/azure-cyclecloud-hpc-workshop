@@ -1,8 +1,8 @@
-# Step06 – Slurm Template Customizing (Advanced)
+# Step06 – Template
 
 ---
 
-## 🎯 학습 목표
+## 학습 목표
 
 이번 Advanced Step에서는 Azure CycleCloud의 핵심 기능 중 하나인
 **Cluster Template 구조**를 이해하고, Slurm Cluster 구성을 조금 더 깊이 있게 살펴봅니다.
@@ -16,7 +16,7 @@
 * Template 수정 후 Cluster 재적용 흐름 이해
 * Autoscale 구조가 Template와 어떻게 연결되는지 이해
 
-> ⚠️ Production 환경을 위한 Template 설계가 아닌, 학습 목적의 구조 이해에 초점을 둡니다.
+> Production 환경을 위한 Template 설계가 아닌, 학습 목적의 구조 이해에 초점을 둡니다.
 
 ---
 
@@ -35,11 +35,11 @@
 
 ---
 
-## 🔎 Template과 Autoscale의 관계
+## Template과 Autoscale의 관계
 
 Autoscale은 Template에 정의된 Nodearray를 기준으로 동작합니다.
 
-```id="u3sofp"
+```text
 Template
  └─ Nodearray 정의
        └─ VM Size
@@ -49,14 +49,14 @@ Template
 
 즉,
 
-👉 Scheduler가 Job을 받으면
-👉 Template 정의를 참고하여 Compute Node를 생성합니다.
+Scheduler가 Job을 받으면
+Template 정의를 참고하여 Compute Node를 생성합니다.
 
 ---
 
 # 2. CycleCloud UI에서 Template 확인
 
-## 🔧 Template 화면 이동
+## Template 화면 이동
 
 1. CycleCloud Web Portal 접속
 2. 상단 메뉴 → **Templates**
@@ -64,13 +64,13 @@ Template
 
 예시:
 
-```id="n9gpl6"
+```text
 slurm
 ```
 
 ---
 
-## ✔️ Template 구성 요소
+## Template 구성 요소
 
 Template 화면에서는 다음과 같은 요소를 확인할 수 있습니다.
 
@@ -89,7 +89,7 @@ Nodearray는 Compute Node의 정의 단위입니다.
 
 예:
 
-```id="1r7l4z"
+```text
 compute-hb
 compute-cpu
 compute-gpu
@@ -104,11 +104,11 @@ compute-gpu
 
 ---
 
-## 🔎 현재 Cluster Nodearray 확인
+## 현재 Cluster Nodearray 확인
 
 CycleCloud UI:
 
-```id="c98dxt"
+```text
 Clusters → slurm-hpc-lab → Edit
 ```
 
@@ -123,11 +123,11 @@ Nodearray 설정을 관찰하고 일부 값을 수정하는 흐름을 이해합�
 
 ---
 
-## 🎯 목표
+## 목표
 
 기존 compute nodearray에서:
 
-```id="1twipk"
+```text
 Max Node 수 변경
 ```
 
@@ -135,7 +135,7 @@ Max Node 수 변경
 
 ---
 
-## 🔧 Template 수정
+## Template 수정
 
 1. Templates 메뉴 이동
 2. Slurm Template 선택
@@ -143,7 +143,7 @@ Max Node 수 변경
 
 예시 설정:
 
-```id="7h6dvt"
+```text
 Max Count: 4 → 6
 ```
 
@@ -151,13 +151,13 @@ Save 클릭
 
 ---
 
-## 📌 중요한 개념
+## 중요한 개념
 
 Template을 수정했다고 해서 즉시 VM이 생성되지는 않습니다.
 
 Template은:
 
-```id="zz9f83"
+```text
 Cluster의 "설계도"
 ```
 
@@ -177,7 +177,7 @@ Template 변경 후:
 
 Cluster 상태:
 
-```id="0hyu5e"
+```text
 Updating → Running
 ```
 
@@ -187,7 +187,7 @@ Updating → Running
 
 이제 Scheduler는 다음 정보를 기반으로 Node를 생성합니다.
 
-```id="sj8npe"
+```text
 Partition → Nodearray → VM Size → Max Node
 ```
 
@@ -223,7 +223,7 @@ Dynamic Partition 특징:
 
 ---
 
-# ✔️ Step06 완료 체크리스트
+# Step06 완료 체크리스트
 
 * [ ] Templates 메뉴 접근 성공
 * [ ] Slurm Template 구조 확인
@@ -233,9 +233,9 @@ Dynamic Partition 특징:
 
 ---
 
-# 🧠 이번 Step 핵심 요약
+# 이번 Step 핵심 요약
 
-```id="rglhzl"
+```text
 CycleCloud Template = HPC Cluster 설계도
 Nodearray = Autoscale 단위
 Partition = Scheduler Queue
@@ -244,7 +244,7 @@ Template 변경 → Autoscale 동작 변경
 
 ---
 
-# ➡️ 다음 Step (Advanced)
+# 다음 Step
 
 Step07에서는 tutorials 내용을 이어 받아
 

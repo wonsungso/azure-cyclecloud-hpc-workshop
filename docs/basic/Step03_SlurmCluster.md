@@ -1,8 +1,8 @@
-# Step03 – Slurm HPC Cluster 생성
+# Step03 – SlurmCluster
 
 ---
 
-## 🎯 학습 목표
+## 학습 목표
 
 이번 Step에서는 Azure CycleCloud를 이용하여
 **Slurm 기반 HPC Cluster**를 실제로 생성합니다.
@@ -28,7 +28,7 @@
 
 이번 Step에서 만들 구조는 다음과 같습니다.
 
-```id="o0r77h"
+```text
 CycleCloud
    │
    ▼
@@ -57,7 +57,7 @@ CycleCloud
 
 Template 목록에서:
 
-```id="qu4a3m"
+```text
 Slurm
 ```
 
@@ -74,7 +74,7 @@ Next 클릭
 
 # 4. Cluster 기본 설정
 
-## 🧾 General Settings
+## General Settings
 
 | 항목             | 값 (예시)                |
 | -------------- | --------------------- |
@@ -84,7 +84,7 @@ Next 클릭
 
 ---
 
-## 🌐 Network 설정
+## Network 설정
 
 | 항목              | 값               |
 | --------------- | --------------- |
@@ -99,7 +99,7 @@ Login/Controller Node는 Management Subnet에 위치합니다.
 
 Slurm Template에는 여러 Node Type이 존재합니다.
 
-## 🔹 Scheduler / Login Node
+## Scheduler / Login Node
 
 역할:
 
@@ -109,27 +109,27 @@ Slurm Template에는 여러 Node Type이 존재합니다.
 
 권장 VM Size:
 
-```id="oxcazr"
+```text
 Standard_D2as_v5
 ```
 
 ---
 
-## 🔹 Compute Node (가장 중요)
+## Compute Node (가장 중요)
 
 실제 계산을 수행하는 노드입니다.
 
 설정 예시:
 
-```id="r2tzkl"
+```text
 VM Size: Standard_D4as_v5
 Min Nodes: 0
 Max Nodes: 4
 ```
 
-📌 Min=0 설정 이유:
+Min=0 설정 이유:
 
-* Autoscale 동작을 눈으로 확인하기 위함
+* Autoscale 동작을 실습에서 명확히 검증하기 위함
 * Job이 있을 때만 VM 생성
 
 ---
@@ -140,7 +140,7 @@ Slurm에서는 Compute Node를 Partition으로 그룹화합니다.
 
 예:
 
-```id="k15i04"
+```text
 partition = compute
 ```
 
@@ -151,7 +151,7 @@ partition = compute
 
 이번 워크샵에서는:
 
-```id="3m7d52"
+```text
 compute partition 하나만 사용
 ```
 
@@ -163,7 +163,7 @@ Step01에서 만든 Azure Files가 자동 마운트될 수 있습니다.
 
 CycleCloud Template 기본 설정:
 
-```id="o3bgcf"
+```text
 /shared
 /home
 ```
@@ -181,11 +181,11 @@ CycleCloud Template 기본 설정:
 
 Cluster 상태가 다음 단계로 진행됩니다.
 
-```id="eqzvfd"
+```text
 Starting → Provisioning → Running
 ```
 
-⏱️ 약 10~15분 소요
+약 10~15분 소요
 
 ---
 
@@ -200,7 +200,7 @@ Cluster 생성이 시작되면 Azure Portal에서:
 
 왜냐하면:
 
-```id="br93rm"
+```text
 Min Nodes = 0
 ```
 
@@ -219,7 +219,7 @@ CycleCloud UI → Clusters 화면에서:
 
 ---
 
-# ✔️ Step03 완료 체크리스트
+# Step03 완료 체크리스트
 
 * [ ] Slurm Template 선택
 * [ ] Cluster Name 설정 완료
@@ -229,9 +229,9 @@ CycleCloud UI → Clusters 화면에서:
 
 ---
 
-# 🧠 지금까지의 흐름 요약
+# 지금까지의 흐름 요약
 
-```id="1ycsci"
+```text
 Step01: Azure 인프라 준비
 Step02: CycleCloud 배포
 Step03: Slurm Cluster 생성 완료
@@ -244,7 +244,7 @@ CycleCloud가 자동으로 VM을 생성하게 됩니다.
 
 ---
 
-# ➡️ 다음 Step
+# 다음 Step
 
 Step04에서는 Login Node에 SSH 접속하여
 

@@ -1,8 +1,8 @@
-# Step01 – Azure 기본 인프라 준비 (Resource Group + Network + Storage)
+# Step01 – Infra
 
 ---
 
-## 🎯 학습 목표
+## 학습 목표
 
 이번 Step에서는 Azure CycleCloud와 Slurm HPC 클러스터를 배포하기 전에 필요한 **기본 Azure 인프라**를 준비합니다.
 
@@ -33,18 +33,18 @@ Azure Subscription
 
 # 2. Resource Group 생성
 
-## 📌 Resource Group이 중요한 이유
+## Resource Group이 중요한 이유
 
-HPC 환경은 VM이 동적으로 생성/삭제되기 때문에
-모든 리소스를 하나의 RG에 넣어야 관리 및 삭제가 쉽습니다.
+HPC 환경은 VM이 동적으로 생성/삭제되므로
+모든 리소스를 하나의 RG에 배치하면 관리 및 삭제 효율이 향상됩니다.
 
 특히 워크샵에서는:
 
-👉 마지막 Step에서 RG 삭제 = 전체 리소스 정리
+마지막 Step에서 RG 삭제 = 전체 리소스 정리
 
 ---
 
-## 🔧 Azure Portal 생성 절차
+## Azure Portal 생성 절차
 
 1. Azure Portal 접속
 2. 상단 검색창 → **Resource Groups**
@@ -62,7 +62,7 @@ HPC 환경은 VM이 동적으로 생성/삭제되기 때문에
 
 ---
 
-## ✔️ 완료 확인
+## 완료 확인
 
 Resource Group 목록에서 다음 확인:
 
@@ -72,7 +72,7 @@ Resource Group 목록에서 다음 확인:
 
 # 3. Virtual Network 및 Subnet 구성
 
-## 📌 HPC에서 Network가 중요한 이유
+## HPC에서 Network가 중요한 이유
 
 일반 VM과 달리 HPC는 노드 간 통신이 많습니다.
 
@@ -84,7 +84,7 @@ Resource Group 목록에서 다음 확인:
 
 ---
 
-## 🎯 이번 워크샵 네트워크 구조
+## 이번 워크샵 네트워크 구조
 
 | Subnet          | 역할                      |
 | --------------- | ----------------------- |
@@ -93,7 +93,7 @@ Resource Group 목록에서 다음 확인:
 
 ---
 
-## 🔧 VNet 생성 절차
+## VNet 생성 절차
 
 1. Azure Portal 검색 → **Virtual Network**
 2. Create 선택
@@ -113,14 +113,14 @@ Resource Group 목록에서 다음 확인:
 
 ### Subnet 추가
 
-#### 1️⃣ Management Subnet
+#### 1. Management Subnet
 
 ```
 Name: snet-management
 Address range: 10.10.1.0/24
 ```
 
-#### 2️⃣ Compute Subnet
+#### 2. Compute Subnet
 
 ```
 Name: snet-compute
@@ -131,7 +131,7 @@ Create 클릭
 
 ---
 
-## ✔️ 완료 확인
+## 완료 확인
 
 Virtual Network → Subnets 탭에서:
 
@@ -146,7 +146,7 @@ Virtual Network → Subnets 탭에서:
 
 이번 워크샵에서는 최소 구성만 사용합니다.
 
-## 📌 왜 Public 접근을 최소화하는가?
+## 왜 Public 접근을 최소화하는가?
 
 HPC 환경은 보통 내부 네트워크 중심으로 동작합니다.
 
@@ -160,7 +160,7 @@ HPC 환경은 보통 내부 네트워크 중심으로 동작합니다.
 
 # 5. Shared Storage 준비 (Azure Files)
 
-## 📌 HPC에서 Shared Storage가 필요한 이유
+## HPC에서 Shared Storage가 필요한 이유
 
 모든 노드가 동일한 데이터를 보아야 합니다.
 
@@ -179,7 +179,7 @@ HPC 환경은 보통 내부 네트워크 중심으로 동작합니다.
 
 ---
 
-## 🔧 Storage Account 생성
+## Storage Account 생성
 
 1. Azure Portal → **Storage Accounts**
 2. Create 선택
@@ -197,7 +197,7 @@ Create 클릭
 
 ---
 
-## 🔧 File Share 생성
+## File Share 생성
 
 Storage Account 생성 후:
 
@@ -215,7 +215,7 @@ Create 클릭
 
 ---
 
-## ✔️ 완료 확인
+## 완료 확인
 
 File Share 목록에:
 
@@ -239,7 +239,7 @@ shared
 
 ---
 
-# ✔️ Step01 완료 체크리스트
+# Step01 완료 체크리스트
 
 다음 항목이 모두 준비되었는지 확인합니다.
 
@@ -252,9 +252,9 @@ shared
 
 ---
 
-# ➡️ 다음 Step
+# 다음 Step
 
 Step02에서는 Azure Marketplace를 이용하여
 **Azure CycleCloud VM을 배포**하고 Web UI에 접속합니다.
 
-이제부터 실제 HPC Control Plane을 구축하기 시작합니다.
+다음 단계에서 실제 HPC Control Plane 구축을 시작합니다.

@@ -1,8 +1,8 @@
-# Step05 – Autoscale 체험 및 리소스 정리
+# Step05 – Autoscale
 
 ---
 
-## 🎯 학습 목표
+## 학습 목표
 
 이번 Step에서는 Azure CycleCloud와 Slurm Scheduler가 함께 동작하면서
 **Compute Node가 자동으로 생성되고 삭제되는 Autoscale 과정**을 확인합니다.
@@ -20,7 +20,7 @@
 
 Azure HPC에서 Autoscale은 다음 흐름으로 동작합니다.
 
-```id="l9w5hx"
+```text
 Job Queue 증가
       │
       ▼
@@ -35,7 +35,7 @@ Azure VM Compute Node 생성
 
 반대로 Job이 끝나면:
 
-```id="flbexh"
+```text
 Idle Node 발생
       │
       ▼
@@ -51,7 +51,7 @@ Compute Node 자동 삭제
 
 Login Node에서 먼저 상태를 확인합니다.
 
-```bash id="x3z0pi"
+```bash
 sinfo
 ```
 
@@ -66,15 +66,29 @@ sinfo
 
 ---
 
-## 🔧 테스트용 Job Script 생성
+## 테스트용 Job Script 생성
 
-```bash id="z0rc8r"
+복사/붙여넣기 대신 저장소의 샘플 스크립트를 그대로 사용하려면(권장), **로컬 저장소 루트**에서 아래 명령으로 업로드할 수 있습니다.
+
+```bash
+scp scripts/autoscale-test.sh <username>@<LoginNodePublicIP>:~/
+```
+
+Login Node에서 확인:
+
+```bash
+ls -l ~/autoscale-test.sh
+```
+
+또는 아래처럼 직접 생성해도 됩니다.
+
+```bash
 nano autoscale-test.sh
 ```
 
 내용 입력:
 
-```bash id="u4c2po"
+```bash
 #!/bin/bash
 #SBATCH --job-name=scale-test
 #SBATCH --output=scale-output.txt
@@ -91,7 +105,7 @@ sleep 120
 
 다음 명령을 반복 실행합니다.
 
-```bash id="jwlf8j"
+```bash
 sbatch autoscale-test.sh
 sbatch autoscale-test.sh
 sbatch autoscale-test.sh
@@ -100,15 +114,15 @@ sbatch autoscale-test.sh
 
 ---
 
-## 🔎 Queue 상태 확인
+## Queue 상태 확인
 
-```bash id="duoyy4"
+```bash
 squeue
 ```
 
 예상 상태:
 
-```id="kk6q6q"
+```text
 JOBID PARTITION NAME USER ST
 1 compute scale-test R
 2 compute scale-test R
@@ -129,7 +143,7 @@ Azure Portal → Virtual Machines 이동
 
 몇 분 후:
 
-```id="o0ax7k"
+```text
 compute-0
 compute-1
 compute-2
@@ -138,7 +152,7 @@ compute-2
 
 와 같이 새로운 VM이 생성되는 것을 확인할 수 있습니다.
 
-📌 이것이 CycleCloud Autoscale입니다.
+이것이 CycleCloud Autoscale입니다.
 
 ---
 
@@ -146,13 +160,13 @@ compute-2
 
 약 2~3분 후 Job이 종료되면:
 
-```bash id="rf8zz0"
+```bash
 squeue
 ```
 
 결과:
 
-```id="x0evux"
+```text
 (no jobs)
 ```
 
@@ -160,7 +174,7 @@ squeue
 
 Azure Portal에서 Compute Node VM이 자동 삭제됩니다.
 
-⏱️ Idle timeout은 Template 설정에 따라 다릅니다.
+Idle timeout은 Template 설정에 따라 다릅니다.
 
 ---
 
@@ -168,7 +182,7 @@ Azure Portal에서 Compute Node VM이 자동 삭제됩니다.
 
 이번 실습에서 확인한 흐름:
 
-```id="u92p7r"
+```text
 1) Job 제출 증가
 2) Queue 대기 발생
 3) CycleCloud가 Compute VM 생성
@@ -179,7 +193,7 @@ Azure Portal에서 Compute Node VM이 자동 삭제됩니다.
 
 즉,
 
-👉 Azure HPC는 "필요할 때만 VM을 생성"합니다.
+Azure HPC는 "필요할 때만 VM을 생성"합니다.
 
 ---
 
@@ -196,7 +210,7 @@ Azure Portal에서 Compute Node VM이 자동 삭제됩니다.
 
 Autoscale을 사용하면:
 
-✔️ Job이 없을 때 Compute 비용 최소화 가능
+Job이 없을 때 Compute 비용 최소화 가능
 
 ---
 
@@ -206,31 +220,31 @@ Autoscale을 사용하면:
 
 ---
 
-## 🔧 Step 1 – Slurm Cluster Stop
+## Step 1 – Slurm Cluster Stop
 
 CycleCloud UI → Clusters
 
-```id="y5q8t4"
+```text
 slurm-hpc-lab → Stop
 ```
 
 ---
 
-## 🔧 Step 2 – CycleCloud VM Stop
+## Step 2 – CycleCloud VM Stop
 
 Azure Portal → Virtual Machines
 
-```id="k8vlx4"
+```text
 cc-hpc-lab → Stop
 ```
 
 ---
 
-## 🔧 Step 3 – Resource Group 삭제
+## Step 3 – Resource Group 삭제
 
 Azure Portal → Resource Groups
 
-```id="5o0d1g"
+```text
 rg-cyclecloud-hpc-lab → Delete
 ```
 
@@ -246,7 +260,7 @@ rg-cyclecloud-hpc-lab → Delete
 
 ---
 
-# ✔️ Step05 완료 체크리스트
+# Step05 완료 체크리스트
 
 * [ ] 여러 Job 제출 성공
 * [ ] Compute Node 자동 생성 확인
@@ -257,11 +271,11 @@ rg-cyclecloud-hpc-lab → Delete
 
 ---
 
-# 🎉 Workshop 완료
+# Workshop 완료
 
 지금까지 다음 내용을 경험했습니다.
 
-```id="7hmcl2"
+```text
 Azure Portal 기반 HPC 환경 구축
 CycleCloud Control Plane 이해
 Slurm Scheduler 동작 이해
